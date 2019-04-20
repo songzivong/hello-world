@@ -76,13 +76,13 @@ def main():
     cal_bayes_avg(books)
     books.sort(key=sort_by_weighted_rating, reverse=True)
 
-    top_books = books[:50]
+    top_books = books[:250]
 
     output_file = 'books/' + searching_text + '.md'
     output = open(output_file, 'w', encoding='UTF-8')
     output.write('# Top Books of \'' + searching_text + '\'\n\n')
     output.write('Date: ' + time.asctime(time.localtime()) + '\n\n')
-    output.write('| Title | Weighted Ranting |\n')
+    output.write('| Title | Bayes Average Rating |\n')
     output.write('|:----- |:---------------- |\n')
     for book in top_books:
         output.write('| [' + book.title + '](' + book.url + ') | ' + str(book.bayes_avg) + '|\n')
